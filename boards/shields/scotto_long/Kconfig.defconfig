@@ -1,0 +1,6 @@
+if SHIELD_SCOTTO_LONG
+
+config ZMK_KEYBOARD_NAME
+    default "scotto-long"
+
+endif # SHIELD_SCOTTO_LONG
