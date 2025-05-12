@@ -37,7 +37,7 @@
                 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
                 &trans                      &trans                             &trans
             >;
-        }
+        };
 
         raise_layer {
             bindings = <
@@ -46,7 +46,7 @@
                 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
                 &trans                      &trans                             &trans
             >;
-        }
+        };
 
         adjust_layer {
             bindings = <
@@ -55,6 +55,6 @@
                 &none      &none       &none          &none &none &none &none &none &none &none
                 &trans                                      &none                         &trans
             >;
-        }
+        };
     };
 };
