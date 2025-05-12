@@ -1,12 +1,23 @@
-// This file was generated from a template. Edit it to match your keyboard.
-// See https://zmk.dev/docs/development/hardware-integration/new-shield for more instructions.
-
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
+#define DEF 0
+#define LWR 1
+#define RSE 2
+#define ADJ 3
+
+&lt { quick-tap-ms = <200>; };
+&mt { quick-tap-ms = <200>; };
+
 / {
-    // Define a default keymap here.
-    // See https://zmk.dev/docs/development/hardware-integration/new-shield#default-keymap.
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        tri_layer {
+            if-layers = <LWR RSE>;
+            then-layer = <ADJ>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -18,5 +29,32 @@
                 &kp LALT                   &kp SPACE                        &kp RCTRL
             >;
         };
+
+        lower_layer {
+            bindings = <
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans                      &trans                             &trans
+            >;
+        }
+
+        raise_layer {
+            bindings = <
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans                      &trans                             &trans
+            >;
+        }
+
+        adjust_layer {
+            bindings = <
+                &sys_reset &bootloader &studio_unlock &none &none &none &none &none &none &none
+                &none      &none       &none          &none &none &none &none &none &none &none
+                &none      &none       &none          &none &none &none &none &none &none &none
+                &trans                                      &none                         &trans
+            >;
+        }
     };
 };
